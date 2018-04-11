@@ -25,13 +25,9 @@ install.packages("parcor")
 
 ## References
 
-The inspiration, theory, and code for the following project comes from the highly active [Psychosystems](http://psychosystems.org/) group. Notable citations and and methodological tutorials with regard to personality and psychopathology constructs as networks of mutually reinforcing behaviors include:
+The inspiration, theory, and code for the following project comes from active applications of these techniques by Gabriel Olaru, Oliver Wilhelm, and Ulrich Schroeders in personality psychology. The primary work providing the logic, structure, and open source syntax for applying these algorithms comes from the following citation:
 
-- [Borsboom, D., & Cramer, A. O. (2013). Network analysis: an integrative approach to the structure of psychopathology. Annual review of clinical psychology, 9, 91-121.](https://www.ncbi.nlm.nih.gov/pubmed/23537483)
-
-- [Cramer, A. O., Sluis, S., Noordhof, A., Wichers, M., Geschwind, N., Aggen, S. H., ... & Borsboom, D. (2012). Dimensions of normal personality as networks in search of equilibrium: You can't like parties if you don't like people. European Journal of Personality, 26(4), 414-431.](http://onlinelibrary.wiley.com/doi/10.1002/per.1866/full)
-
-- [Costantini, G., Epskamp, S., Borsboom, D., Perugini, M., Mõttus, R., Waldorp, L. J., & Cramer, A. O. (2015). State of the aRt personality research: A tutorial on network analysis of personality data in R. Journal of Research in Personality, 54, 13-29.](www.sciencedirect.com/science/article/pii/S0092656614000701)
+- [Schroeders, U., Wilhelm, O., & Olaru, G. (2016). Meta-heuristics in short scale construction: ant colony optimization and genetic algorithm. PloS one, 11(11), e0167110.](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0167110)
 
 ## License
 
