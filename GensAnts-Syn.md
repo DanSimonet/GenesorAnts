@@ -57,3 +57,8 @@ HPIDat.fin.tra[,65:270] <- lapply(HPIDat.fin.tra[,65:270], ordered)
 
 ### Step 4. Create scoring keys
 ------
+
+For all subsequent syntax, we provide an example of (a) a 15-item scale only, using (b) generic item labels to protect the proprietary nature of the key. Note all syntax examples below were re-run for 7 different scales x 3 item length sets (5-item, 10-item, 15-item). Syntax and iterative updating need to be adjusted to reflect your study purposes, scale length, and unique scoring keys. 
+
+
+
