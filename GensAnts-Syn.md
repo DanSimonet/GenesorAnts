@@ -17,8 +17,20 @@ HPIDat.red <- HPIDat %>%
 ```
 Clean and remove aberrant respondens
 
-`long <- longstring(HPIDat.red[,65:270]);
-sum(long > 30)` #long-string index
+#long-string index
+```Rouge
+long <- longstring(HPIDat.red[,65:270])
+sum(long > 30)
+HPIDat.red %>% dplyr::filter(long, sum == 1)
+```
+#Identify # pairs with r > .40
+```Rouge
+HPI.item.r <- correlate(HPIDat.red[,65:270])
+HPI.df <- stretch(HPI.item.r, na.rm = TRUE)
+sum(HPI.df %>% filter(r > .40))
+synonym <- psychsyn(HPIDat.red[,65:270], critVal = .40)
+sum(synonym > .15)
+```
 
 ### Step 3. Filter dataset and eliminate careless respondents
 ------
