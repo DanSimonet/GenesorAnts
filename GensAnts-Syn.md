@@ -123,7 +123,7 @@ GAA.Scale.5 <- GAabbreviate(Scale.items, Scale.scale, itemCost = .05, maxItems =
                             popSize = 50, maxiter = 200, run = 100, crossVal = F, impute = T)
 ```
 
-### Step 6. Ant Colony Optimization (ACO)
+### Step 7. Ant Colony Optimization (ACO)
 ------
 
 Note the ACO takes a long time to run (upwards of 24 hours). To compensate, we ran all analyses using Amazon EC2 online cloud server space. To run the algorithm, R must be able to access a new .csv sheet which is updated with results as the analyses run. There are automated procedures to synchronize amazon cloud services with dropbox.  
