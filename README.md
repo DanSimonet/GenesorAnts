@@ -14,13 +14,17 @@ The following aspects of the project can be accessed.
 
 - R > 3.0 (possibly earlier versions will work)
 
-The following R packages should be installed and loaded to simulate the item-level data and run network analyses. 
+The following R packages should be installed and loaded to run all the needed data manipulations, figures, and algorithms
 
 ```
-install.packages("bindata")
+install.packages("grid")
 install.packages("psych")
-install.packages("qgraph")
-install.packages("parcor")
+install.packages("tidyverse")
+install.packages("gridExtra")
+install.packages("GAabbreviate")
+install.packages("lavaan")
+install.packages("careless")
+install.packages("corrr")
 ```
 
 ## References
