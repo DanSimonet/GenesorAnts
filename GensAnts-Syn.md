@@ -37,5 +37,23 @@ HPIDat.red <- cbind(HPIDat.red, long, synonym, outliers)
 HPIDat.fin <- HPIDat.red %>% filter(long <= 30, synonym > .15)
 ```
 
-### Step 3. Filter dataset and eliminate careless respondents
+### Step 3. Set Seed and Randomly Split into Training and Validation Sample (80/20 split)
+------
+
+Set seed and randomly sample
+```Rouge
+set.seed(99); HPIDat.fin.tra <- sample_frac(HPIDat.fin, .80)
+sid <- as.numeric(rownames(HPIDat.fin.tra))
+HPIDat.fin.tes <- HPIDat.fin[-sid,]
+```
+
+Check and convert class of items to binary-ordered (HPI uses dichotomous responses)
+
+```
+varTable(HPIDat.red)
+HPIDat.fin.tes[,65:270] <- lapply(HPIDat.fin.tes[,65:270], ordered)
+HPIDat.fin.tra[,65:270] <- lapply(HPIDat.fin.tra[,65:270], ordered)
+```
+
+### Step 4. Create scoring keys
 ------
