@@ -33,6 +33,7 @@ synonym <- psychsyn(HPIDat.red[,65:270], critVal = .40)
 sum(synonym > .15)
 
 ##Add carelessness indices to HPIDat dataset
+
 HPIDat.red <- cbind(HPIDat.red, long, synonym, outliers)
 HPIDat.fin <- HPIDat.red %>% filter(long <= 30, synonym > .15)
 ```
@@ -41,6 +42,7 @@ HPIDat.fin <- HPIDat.red %>% filter(long <= 30, synonym > .15)
 ------
 
 Set seed and randomly sample
+
 ```Rouge
 set.seed(99); HPIDat.fin.tra <- sample_frac(HPIDat.fin, .80)
 sid <- as.numeric(rownames(HPIDat.fin.tra))
@@ -58,7 +60,28 @@ HPIDat.fin.tra[,65:270] <- lapply(HPIDat.fin.tra[,65:270], ordered)
 ### Step 4. Create scoring keys
 ------
 
-For all subsequent syntax, we provide an example of (a) a 15-item scale only, using (b) generic item labels to protect the proprietary nature of the key. Note all syntax examples below were re-run for 7 different scales x 3 item length sets (5-item, 10-item, 15-item). Syntax and iterative updating need to be adjusted to reflect your study purposes, scale length, and unique scoring keys. 
+For all subsequent syntax, we provide an example of (a) creating a 5-item scale only, using (b) a  10-item scale with generic labels to protect the proprietary nature of the HPI key. Note all syntax examples below were re-run for 7 different scales x 3 item length sets  (5-item, 10-item, 15-item) x 3 analyses (Stepwise Confirmatory, Genetic, Ant Colony) for 63 seperate analyses. Syntax and iterative updating need to be adjusted to reflect your study purposes, scale length, and unique scoring keys. 
 
+Create a key list for scoring
 
+```
+key.list <- list(Scale=c('item1','item2','item3','item4','item5','item6','item7','item8','item9','item10'))
+keys <- make.keys(10, key.list, item.labels = colnames(HPIDat.fin))
+```
 
+Create seperate item and full-scale score matrices
+
+```
+HPIItems <- as.matrix(HPIDat.fin[,65:270])
+HPIscores <- scoreItems(keys, HPIDat.fin)
+HPI.scales <- as.data.frame(HPIscores$scores)
+HPI.scales <- cbind(HPIDat.fin[,7:13], HPI.scales)
+```
+
+Create seperate item and full-scale score matrices (for later validation)
+
+```
+
+```
+
+                 
