@@ -69,19 +69,46 @@ key.list <- list(Scale=c('item1','item2','item3','item4','item5','item6','item7'
 keys <- make.keys(10, key.list, item.labels = colnames(HPIDat.fin))
 ```
 
-Create seperate item and full-scale score matrices
+Create full-scale scores and bind with earlier dataset
 
 ```
-HPIItems <- as.matrix(HPIDat.fin[,65:270])
 HPIscores <- scoreItems(keys, HPIDat.fin)
 HPI.scales <- as.data.frame(HPIscores$scores)
 HPI.scales <- cbind(HPIDat.fin[,7:13], HPI.scales)
 ```
 
-Create seperate item and full-scale score matrices (for later validation)
+### Step 5. Stepwise Confirmatory Factor Analysis (SCFA)
+------
+
+Create a list of item names
+`item_names <- names(HPIDat.fin.tes[,65:270])`
+
+Iteratively carry out the SCFA and eliminate items with the lowest loading until the target length (e.g., 5 items) is reached.
 
 ```
+##Round 1
 
+Scale_m1 <- ' Scale =~ item1 + item2 + item3 + item4 + item5 + item6 + item7 + item8 + item9 + item10'
+scale_fit1 <- cfa(Scale_m1, HPIDat.fin.tra[,item_names])
+scale_sum1 <- summary(scale_fit1, fit.measure=T, rsq=T, standardized=T)
+inspect(scale_fit1,what="std")$lambda[order(inspect(scale_fit1,what="std")$lambda, decreasing =F), ]
+
+#Decide to drop item1
+
+##Round 2
+Scale_m2 <- ' Scale =~ item2 + item3 + item4 + item5 + item6 + item7 + item8 + item9 + item10'
+scale_fit2 <- cfa(Scale_m2, HPIDat.fin.tra[,item_names])
+scale_sum2 <- summary(scale_fit2, fit.measure=T, rsq=T, standardized=T)
+inspect(scale_fit2,what="std")$lambda[order(inspect(scale_fit2,what="std")$lambda, decreasing =F), ]
+
+#Decide to drop item2
+
+#Repeat until five items remaining
 ```
 
+
+
+
+
+```
                  
