@@ -1,4 +1,4 @@
-# GenesorAnts
+# Genes or Ants
 Code to reproduce metaheuristic algorithms for 2018 SIOP poster on scale shortening with Genes or Ants
 
 ## Project and Data Description
