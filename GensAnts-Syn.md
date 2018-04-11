@@ -106,9 +106,22 @@ inspect(scale_fit2,what="std")$lambda[order(inspect(scale_fit2,what="std")$lambd
 #Repeat until five items remaining
 ```
 
+### Step 6. Genetic Algorithm (GA)
+------
 
-
-
+Provide full scale scores and items in matrices
 
 ```
+Scale.items <- as.matrix(HPIDat.fin.tra[,c('item1','item2','item3','item4','item5','item6','item7','item8','item9','item10')])
+Scale.scale <- as.matrix(HPIDat.fin.tra$scalescore)
+```
+
+Genetic abbreviate to five items
+
+```
+GAA.Scale.5 <- GAabbreviate(Scale.items, Scale.scale, itemCost = .05, maxItems = 15,
+                            popSize = 50, maxiter = 200, run = 100, crossVal = F, impute = T)
+```
+
+
                  
